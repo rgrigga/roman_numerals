@@ -1,26 +1,28 @@
-describe('arabic to roman',function(){
+var cases = {
+    1:'I',
+    2:'II',
+    3:'III',
+    4:'IV',
+    5:'V',
+    8:'VIII',
+    9:'IX',
+    10:'X',
+    14:'XIV',
+    50:'L',
+    99:'XCIX',
+    100:'C',
+    500:'D',
+    888:'DCCCLXXXVIII',
+    900:'CM',
+    999:'CMXCIX',
+    1000:'M',
+    1066:'MLXVI',
+    1944:'MCMXLIV',
+    1989:'MCMLXXXIX',
+    1999:'MCMXCIX'
+};
 
-    var cases = {
-        1:'I',
-        2:'II',
-        3:'III',
-        4:'IV',
-        5:'V',
-        8:'VIII',
-        9:'IX',
-        10:'X',
-        14:'XIV',
-        50:'L',
-        99:'XCIX',
-        100:'C',
-        500:'D',
-        999:'CMXCIX',
-        1000:'M',
-        1066:'MLXVI',
-        1944:'MCMXLIV',
-        1989:'MCMLXXXIX',
-        1999:'MCMXCIX'
-    };
+describe('arabic to roman',function(){
 
     //this consolidates our logic and reduces duplication.
     Object.keys(cases).forEach(function(key){
@@ -47,31 +49,7 @@ describe('arabic to roman',function(){
 
 describe('roman to arabic',function(){
 
-    var cases = {
-        1:'I',
-        2:'II',
-        3:'III',
-        4:'IV',
-        5:'V',
-        8:'VIII',
-        9:'IX',
-        10:'X',
-        14:'XIV',
-        50:'L',
-        99:'XCIX',
-        100:'C',
-        500:'D',
-        900:'CM',
-        999:'CMXCIX',
-        1000:'M',
-        1066:'MLXVI',
-        1944:'MCMXLIV',
-        1989:'MCMLXXXIX',
-        1999:'MCMXCIX'
-    };
-
     Object.keys(cases).forEach(function(key){
-
         it('returns '+key+' for '+cases[key], function(){
             var result = arabic(cases[key]);
             expect(result).toBe(parseInt(key));
