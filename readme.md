@@ -47,3 +47,11 @@ So that they can buy the latest version of the game
 Given I have started the converter
 When I enter $numeral
 Then $number is returned
+
+---
+*Notes
+
+When learning how to use Jasmine, I found this to be helpful:
+
+https://www.cheatography.com/citguy/cheat-sheets/jasmine-js-testing/
+
