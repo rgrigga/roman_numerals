@@ -1,4 +1,4 @@
-describe('arabic to roman',function(){
+xdescribe('arabic to roman',function(){
 
     var cases = {
         1:'I',
@@ -39,6 +39,39 @@ describe('arabic to roman',function(){
 
             //this produces like:
             //expect(roman(1066)).toBe('MLXVI');
+            expect(result).toBe(cases[key]);
+        })
+    });
+
+});
+
+describe('roman to arabic',function(){
+
+    var cases = {
+        1:'I',
+        //2:'II',
+        //3:'III',
+        //4:'IV',
+        //5:'V',
+        //8:'VIII',
+        //9:'IX',
+        //10:'X',
+        //14:'XIV',
+        //50:'L',
+        //99:'XCIX',
+        //100:'C',
+        //500:'D',
+        //999:'CMXCIX',
+        //1000:'M',
+        //1066:'MLXVI',
+        //1944:'MCMXLIV',
+        //1989:'MCMLXXXIX',
+        //1999:'MCMXCIX'
+    };
+
+    Object.keys(cases).forEach(function(key){
+        it('returns '+key+' for '+cases[key], function(){
+            var result = arabic(key);
             expect(result).toBe(cases[key]);
         })
     });
