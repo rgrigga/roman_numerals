@@ -1,3 +1,13 @@
+var valuemap = {
+    1:'I',
+    5:'V',
+    10:'X',
+    50:'L',
+    100:'C',
+    500:'D',
+    1000:'M'
+};
+
 function roman(i,ret){
     if(!ret){
         ret = "";
@@ -53,15 +63,39 @@ function arabic(str,ret){
         ret = 0;
     }
 
-    //get the last char
-    var char = str.slice(-1);
-    //remove the last char from the subject
-    str = str.slice(0, -1);
+    var char1 = str.slice(0,1);//first place
+    var val1 = getKeyByValue(valuemap,char1);//first value
 
-    if(char == 'I'){
-        //add 1 to the return, then process the remainder of the subject string
-        ret = ret + 1 + arabic(str,ret);
+    var char2 = str.slice(1,2);//second place
+
+    if(char2){
+        var val2 = getKeyByValue(valuemap,char2);//second value
+
+        if(val1 < val2){
+            //if value of char1 is less than char2, this is a "subtractive" pair.
+            ret = parseInt(ret) + parseInt(val2) - parseInt(val1);
+            str = str.slice(2);
+
+            if(str){
+                //there is more in the string
+                return arabic(str,ret);
+            }
+
+        }else{
+            //val2 is less than or equal to val1
+            //process ONLY the first position, as the second may be a subtraction of the third character, and will be caught on the next iteration:
+            ret = parseInt(ret) + parseInt(val1);
+            str = str.slice(1);
+            return arabic(str,ret);
+        }
+    }else{
+        //there is no second char
+        ret = parseInt(ret) + parseInt(val1);
     }
 
-    return ret;
+    return parseInt(ret);
+}
+
+function getKeyByValue(object, value) {
+    return Object.keys(object).find(key => object[key] === value);
 }
