@@ -96,6 +96,8 @@ function arabic(str,ret){
     return parseInt(ret);
 }
 
+//this is ES6:
+//http://stackoverflow.com/a/28191966/2238694
 function getKeyByValue(object, value) {
     return Object.keys(object).find(key => object[key] === value);
 }
