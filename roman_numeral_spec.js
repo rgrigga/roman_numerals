@@ -50,7 +50,7 @@ describe('roman to arabic',function(){
     var cases = {
         1:'I',
         //2:'II',
-        //3:'III',
+        3:'III',
         //4:'IV',
         //5:'V',
         //8:'VIII',
