@@ -1,4 +1,4 @@
-xdescribe('arabic to roman',function(){
+describe('arabic to roman',function(){
 
     var cases = {
         1:'I',
