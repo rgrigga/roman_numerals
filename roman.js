@@ -47,12 +47,21 @@ function roman(i,ret){
     return ret;
 }
 
-function arabic(s,ret){
+function arabic(str,ret){
     if(!ret){
+        //'initialize' the return
         ret = 0;
     }
-    if(s == 'I'){
-        ret = 1;
+
+    //get the last char
+    var char = str.slice(-1);
+    //remove the last char from the subject
+    str = str.slice(0, -1);
+
+    if(char == 'I'){
+        //add 1 to the return, then process the remainder of the subject string
+        ret = ret + 1 + arabic(str,ret);
     }
+
     return ret;
 }
