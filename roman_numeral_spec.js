@@ -28,4 +28,12 @@ describe('roman',function(){
         expect(roman(1000)).toBe("M");
     });
 
+    it('should return III for 3',function(){
+        expect(roman(3)).toBe("III");
+    });
+
+    it('should return IX for 9',function(){
+        expect(roman(9)).toBe("IX");
+    });
 });
+
