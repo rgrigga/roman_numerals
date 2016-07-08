@@ -4,102 +4,43 @@ describe('arabic to roman',function(){
         1:'I',
         2:'II',
         3:'III',
+        4:'IV',
         5:'V',
+        8:'VIII',
         9:'IX',
         10:'X',
+        14:'XIV',
         50:'L',
+        99:'XCIX',
         100:'C',
         500:'D',
+        999:'CMXCIX',
         1000:'M',
         1066:'MLXVI',
-        1989:'MCMLXXXIX'
+        1944:'MCMXLIV',
+        1989:'MCMLXXXIX',
+        1999:'MCMXCIX'
     };
 
-    //this consolidates out logic and reduces duplication.
+    //this consolidates our logic and reduces duplication.
     Object.keys(cases).forEach(function(key){
         it('returns '+cases[key]+' for '+key, function(){
             var result = roman(key);
 
+            // http://www.regexpal.com/
+            // and http://www.regular-expressions.info/
+            // were helpful in coming up with the following regex patterns:
+
+            //The symbols 'I', 'X', 'C', and 'M' can be repeated at most 3 times in a row.
             expect(result.match('([IXCM])\1\1\1+')).toBeFalsy();
 
+            //The symbols 'V', 'L', and 'D' can never be repeated.
             expect(result.match('([VLD])\1+')).toBeFalsy();
 
-
-
-            //expect(countCharacter(result,'IXCM{4,}')).toBeLessThan(4);
-
-            //expect(countCharacter(result,'I')).toBeLessThan(4);
-            //expect(countCharacter(result,'X')).toBeLessThan(4);
-            //expect(countCharacter(result,'C')).toBeLessThan(4);
-            //expect(countCharacter(result,'M')).toBeLessThan(4);
-            //
-            //expect(countCharacter(result,'V')).toBeLessThan(2);
-            //expect(countCharacter(result,'L')).toBeLessThan(2);
-            //expect(countCharacter(result,'D')).toBeLessThan(2);
-
-
+            //this produces like:
+            //expect(roman(1066)).toBe('MLXVI');
             expect(result).toBe(cases[key]);
         })
     });
 
-    //it('should return I for 1',function(){
-    //    expect(roman(1)).toBe("I");
-    //});
-    //
-    //it('should return V for 5',function(){
-    //    expect(roman(5)).toBe("V");
-    //});
-    //
-    //it('should return X for 10',function(){
-    //    expect(roman(10)).toBe("X");
-    //});
-    //
-    //it('should return L for 50',function(){
-    //    expect(roman(50)).toBe("L");
-    //});
-    //
-    //it('should return C for 100',function(){
-    //    expect(roman(100)).toBe("C");
-    //});
-    //
-    //it('should return D for 500',function(){
-    //    expect(roman(500)).toBe("D");
-    //});
-    //
-    //it('should return M for 1000',function(){
-    //    expect(roman(1000)).toBe("M");
-    //});
-    //
-    //it('should return III for 3',function(){
-    //    expect(roman(3)).toBe("III");
-    //});
-    //
-    //it('should return IX for 9',function(){
-    //    expect(roman(9)).toBe("IX");
-    //});
-
-    //afterEach(function(){
-    //    expect(countCharacter(roman(4),'I')).toBeLessThan(4);
-    //    expect(countCharacter(roman(4),'X')).toBeLessThan(4);
-    //    expect(countCharacter(roman(4),'C')).toBeLessThan(4);
-    //    expect(countCharacter(roman(4),'M')).toBeLessThan(4);
-    //});
 });
-
-//describe('rules',function(){
-//    it('should not repeat some letters more than 3 times in a row',function(){
-//        //The symbols 'I', 'X', 'C', and 'M' can be repeated at most 3 times in a row.
-//        expect(countCharacter(roman(4),'I')).toBeLessThan(4);
-//        expect(countCharacter(roman(4),'X')).toBeLessThan(4);
-//        expect(countCharacter(roman(4),'C')).toBeLessThan(4);
-//        expect(countCharacter(roman(4),'M')).toBeLessThan(4);
-//    })
-//});
-
-//this is a utility function to abstract counting a character
-//thank you Lo Sauer http://stackoverflow.com/a/10671743/2238694
-function countCharacter(subjectString,char){
-    var regex = new RegExp(char,'g');
-    return (subjectString.match(regex)||[]).length;
-}
-

@@ -2,32 +2,6 @@ function roman(i,ret){
     if(!ret){
         ret = "";
     }
-    //if(i == 1){
-    //    ret = "I";
-    //}
-    //if(i == 5){
-    //    ret = "V";
-    //}
-    //if(i == 10){
-    //    ret = "X";
-    //}
-    //if(i == 50){
-    //    ret = "L";
-    //}
-    //if(i == 100){
-    //    ret = "C";
-    //}
-    //if(i == 500){
-    //    ret = "D";
-    //}
-    //if(i == 1000){
-    //    ret = "M";
-    //}
-
-    //quick & dirty:
-    if(i==9){
-        return "IX";
-    }
 
     if(i>=1000){
         i=i-1000;
@@ -38,6 +12,9 @@ function roman(i,ret){
     }else if(i>=500){
         i=i-500;
         ret = ret + 'D' + roman(i,ret);
+    }else if(i>=400){
+        i=i-400;
+        ret = ret + 'CD' + roman(i,ret);
     }else if(i>=100){
         i=i-100;
         ret = ret + 'C' + roman(i,ret);
@@ -47,6 +24,9 @@ function roman(i,ret){
     }else if(i>=50){
         i=i-50;
         ret = ret + 'L' + roman(i,ret);
+    }else if(i>=40){
+        i=i-40;
+        ret = ret + 'XL' + roman(i,ret);
     }else if(i>=10){
         i=i-10;
         ret = ret + 'X' + roman(i,ret);
@@ -56,6 +36,9 @@ function roman(i,ret){
     }else if(i>=5){
         i=i-5;
         ret = ret + 'V' + roman(i,ret);
+    }else if(i>=4){
+        i=i-4;
+        ret = ret + 'IV' + roman(i,ret);
     }else if(i>=1){
         i=i-1;
         ret = ret + 'I' + roman(i,ret);
