@@ -24,6 +24,11 @@ function roman(i,ret){
     //    ret = "M";
     //}
 
+    //quick & dirty:
+    if(i==9){
+        return "IX";
+    }
+
     if(i>=1000){
         i=i-1000;
         ret = ret + 'M' + roman(i,ret);
