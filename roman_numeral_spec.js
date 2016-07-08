@@ -66,7 +66,7 @@ describe('roman to arabic',function(){
         //1000:'M',
         1066:'MLXVI',
         //1944:'MCMXLIV',
-        //1989:'MCMLXXXIX',
+        1989:'MCMLXXXIX',
         //1999:'MCMXCIX'
     };
 
