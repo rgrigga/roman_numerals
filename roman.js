@@ -1,8 +1,10 @@
 function roman(i){
+    var ret = '';
     if(i == 1){
-        return "I";
+        ret = "I";
     }
     if(i == 5){
-        return "V";
+        ret = "V";
     }
+    return ret;
 }
