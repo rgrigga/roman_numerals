@@ -61,10 +61,10 @@ describe('roman to arabic',function(){
         //99:'XCIX',
         //100:'C',
         //500:'D',
-        900:'CM'
+        900:'CM',
         //999:'CMXCIX',
         //1000:'M',
-        //1066:'MLXVI',
+        1066:'MLXVI',
         //1944:'MCMXLIV',
         //1989:'MCMLXXXIX',
         //1999:'MCMXCIX'
