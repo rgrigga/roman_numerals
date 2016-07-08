@@ -70,9 +70,10 @@ describe('roman to arabic',function(){
     };
 
     Object.keys(cases).forEach(function(key){
+
         it('returns '+key+' for '+cases[key], function(){
-            var result = arabic(key);
-            expect(result).toBe(cases[key]);
+            var result = arabic(cases[key]);
+            expect(result).toBe(parseInt(key));
         })
     });
 

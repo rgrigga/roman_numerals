@@ -47,3 +47,12 @@ function roman(i,ret){
     return ret;
 }
 
+function arabic(s,ret){
+    if(!ret){
+        ret = 0;
+    }
+    if(s == 'I'){
+        ret = 1;
+    }
+    return ret;
+}
