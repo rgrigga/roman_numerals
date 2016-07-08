@@ -1,4 +1,4 @@
-describe('roman',function(){
+describe('arabic to roman',function(){
 
     var cases = {
         1:'I',
@@ -10,7 +10,9 @@ describe('roman',function(){
         50:'L',
         100:'C',
         500:'D',
-        1000:'M'
+        1000:'M',
+        1066:'MLXVI',
+        1989:'MCMLXXXIX'
     };
 
     //this consolidates out logic and reduces duplication.
@@ -18,7 +20,23 @@ describe('roman',function(){
         it('returns '+cases[key]+' for '+key, function(){
             var result = roman(key);
 
-            expect(countCharacter(result,'I')).toBeLessThan(4);
+            expect(result.match('([IXCM])\1\1\1+')).toBeFalsy();
+
+            expect(result.match('([VLD])\1+')).toBeFalsy();
+
+
+
+            //expect(countCharacter(result,'IXCM{4,}')).toBeLessThan(4);
+
+            //expect(countCharacter(result,'I')).toBeLessThan(4);
+            //expect(countCharacter(result,'X')).toBeLessThan(4);
+            //expect(countCharacter(result,'C')).toBeLessThan(4);
+            //expect(countCharacter(result,'M')).toBeLessThan(4);
+            //
+            //expect(countCharacter(result,'V')).toBeLessThan(2);
+            //expect(countCharacter(result,'L')).toBeLessThan(2);
+            //expect(countCharacter(result,'D')).toBeLessThan(2);
+
 
             expect(result).toBe(cases[key]);
         })
@@ -84,3 +102,4 @@ function countCharacter(subjectString,char){
     var regex = new RegExp(char,'g');
     return (subjectString.match(regex)||[]).length;
 }
+
