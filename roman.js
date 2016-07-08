@@ -64,14 +64,15 @@ function arabic(str,ret){
     }
 
     var char1 = str.slice(0,1);//first place
-    var val1 = getKeyByValue(valuemap,char1);//first value
+    var val1 = parseInt(getKeyByValue(valuemap,char1));//first value
 
     var char2 = str.slice(1,2);//second place
 
     if(char2){
-        var val2 = getKeyByValue(valuemap,char2);//second value
+        var val2 = parseInt(getKeyByValue(valuemap,char2));//second value
 
         if(val1 < val2){
+            console.log('val1:'+ val1 + 'is less than val2:'+ val2);
             //if value of char1 is less than char2, this is a "subtractive" pair.
             ret = parseInt(ret) + parseInt(val2) - parseInt(val1);
             str = str.slice(2);
@@ -82,6 +83,8 @@ function arabic(str,ret){
             }
 
         }else{
+            console.log('val1:'+val1+ 'is NOT less than val2:'+val2);
+
             //val2 is less than or equal to val1
             //process ONLY the first position, as the second may be a subtraction of the third character, and will be caught on the next iteration:
             ret = parseInt(ret) + parseInt(val1);
