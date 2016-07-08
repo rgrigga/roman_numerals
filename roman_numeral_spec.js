@@ -61,6 +61,7 @@ describe('roman to arabic',function(){
         //99:'XCIX',
         //100:'C',
         //500:'D',
+        900:'CM'
         //999:'CMXCIX',
         //1000:'M',
         //1066:'MLXVI',
