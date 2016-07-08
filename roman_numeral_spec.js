@@ -54,7 +54,7 @@ describe('roman to arabic',function(){
         //4:'IV',
         //5:'V',
         //8:'VIII',
-        //9:'IX',
+        9:'IX',
         //10:'X',
         //14:'XIV',
         //50:'L',
