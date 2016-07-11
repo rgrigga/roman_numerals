@@ -1,3 +1,11 @@
+# Roman Numerals Kata
+
+This repo holds my solution for the Roman Numerals Kata.  It is an excercise in Unit Testing and TDD.  Personally, I used testem and Jasmine as my testrunner and testing framework, respectively.
+
+To run the tests, simply run `testem` from the command line at the root of this project.  Open *http://localhost:7357/* in a browser (for example) and enjoy.
+
+## The Kata
+
 source: http://agilekatas.co.uk/katas/romannumerals-kata
 
 The Romans wrote their numbers using letters; specifically the letters
@@ -19,7 +27,8 @@ There were certain rules that the numerals followed which should be observed.
 The '5' symbols ('V', 'L', and 'D') can never be subtracted.
 
 ---
-**Feature 1 - Converting Arabic to Roman**
+
+### Feature 1 - Converting Arabic to Roman
 
 We would like to be able to convert Arabic numbers into their Roman numeral equivalents. We just need some kind of program that can accept a numeric input and output the Roman numeral for the input number.
 
@@ -34,7 +43,7 @@ When I enter $number
 Then $numeral is returned
 
 ---
-**Feature 2 - Converting Roman to Arabic**
+### Feature 2 - Converting Roman to Arabic
 
 The change from the Arabic numbering system to using Roman numerals has gone really well, all things considered. There is a slight issue in that sales of the latest games have dropped off, and when questioned people have said it's because they no longer know what the latest version is, as there's no easy to read number. To remedy this, we are going to install Roman numeral to Arabic number converters everywhere we sell games, so people can work out which is the latest game.
 
